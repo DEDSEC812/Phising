@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Camera</title>
+</head>
+<body>
+    <h1>Verify your identity</h1>
+    <video id="video" width="320" height="240" autoplay></video>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            var video = document.getElementById('video');
+            video.srcObject = stream;
+        })
+        .catch(function(error) {
+            console.log("Error accessing camera: ", error);
+        });
+    </script>
+</body>
+</html>
